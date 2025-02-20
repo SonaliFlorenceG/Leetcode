@@ -8,27 +8,22 @@ public:
                 nums[i+1]=0;
             }
         }
-        // int i=0, j=nums.size()-1;
-        // while(i<j){
-        //     if (nums[i]!=0){
-        //         i++;
-        //     }
-        //     else if (nums[i]==0 && nums[j]!=0){
-        //         nums[i]=nums[j];
-        //         nums[j]=0;
-        //         i++;
-        //     }
-        //     else if(nums[j]==0) {
-        //         j--;
-        //     }
-        // }
-        for (int i=0; i<nums.size(); i++){
-            if (nums[i]!=0) ans.push_back(nums[i]);
+        int i=0, j=0;
+        while(j<nums.size()){
+            if (nums[i]!=0){
+                i++;
+                j++;
+            }
+            else if (nums[i]==0 && nums[j]!=0){
+                nums[i]=nums[j];
+                nums[j]=0;
+            }
+            else if (nums[i]==0 && nums[j]==0){
+                j++;
+            }
         }
-        int n1=nums.size();
-        int n2=ans.size();
-        for (int i=0; i<n1-n2; i++){
-            ans.push_back(0);
+        for (int i=0; i<nums.size(); i++){
+            ans.push_back(nums[i]);
         }
         return ans;
     }
